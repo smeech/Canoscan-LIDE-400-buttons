@@ -96,14 +96,13 @@ while true; do
             ;;
         1)  # Button 4, COPY: scan and print on the default printer
             note "Copying..."
-            if timeout 180 scanimage -d "$DEV" --format=png --mode Gray \
-                 --resolution 300 > "$TMP/copy.png" \
-               && img2pdf "$TMP/copy.png" -o "$TMP/copy.pdf"; then
-                lp "$TMP/copy.pdf" >/dev/null && note "Sent to printer"
+            if timeout 180 scanimage -d "$DEV" --format=tiff --mode Gray \
+                 --resolution 600 > "$TMP/copy.tif"; then
+                lp -o fit-to-page "$TMP/copy.tif" >/dev/null && note "Sent to printer"
             else
                 note "Copy failed"
             fi
-            rm -f "$TMP/copy.png" "$TMP/copy.pdf"
+            rm -f "$TMP/copy.tif"
             ;;
         3)  # Button 5, SEND: scan to PDF and start an email with it attached
             out="$DIR/scan-$(stamp).pdf"
