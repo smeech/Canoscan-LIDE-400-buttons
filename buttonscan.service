@@ -1,0 +1,11 @@
+[Unit]
+Description=Scanner button handler (CanoScan LiDE 400)
+
+[Service]
+EnvironmentFile=-%h/.config/buttonscan.conf
+ExecStart=%h/.local/bin/buttonscan.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
