@@ -106,3 +106,7 @@ systemctl --user disable --now buttonscan
 rm ~/.config/systemd/user/buttonscan.service ~/.local/bin/buttonscan.sh
 rm -f ~/.config/buttonscan.conf
 ```
+
+## Contributing
+
+Written in dialogue with Claude (claude.ai). Pull requests are welcome, particularly button mappings for other scanner models.
